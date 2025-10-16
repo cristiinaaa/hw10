@@ -1,0 +1,4 @@
+function updateCount(n){var el=document.getElementById('item-count');if(el)el.textContent=String(n)}
+function addItem(){var input=document.getElementById('item-input');if(!input)return;var name=(input.value||'').trim();if(!name){alert('Please enter an item name.');return}var list=document.getElementById('item-list');if(!list)return;var li=document.createElement('li');li.className='list-group-item';li.textContent=name;li.addEventListener('click',function(){list.removeChild(li);count--;updateCount(count)});list.appendChild(li);count++;updateCount(count);input.value='';input.focus()}
+var count=0;
+document.addEventListener('DOMContentLoaded',function(){var btn=document.getElementById('add-btn');if(btn)btn.addEventListener('click',function(e){e.preventDefault();addItem()});var input=document.getElementById('item-input');if(input)input.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();addItem()}});updateCount(count)});
